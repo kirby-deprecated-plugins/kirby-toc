@@ -8,6 +8,27 @@ Automatically generate a table of contents nested list of your content.
 
 **By default the table of contents should now be visible at the top of all your pages.**
 
+It could look something like this:
+
+```text
+1 Okay Doc, this is it.
+    1.1 Well maybe you are and you just don't know it yet.
+    1.2 Oh, McFly, your shoe's untied.
+    1.3 I'm too loud.
+2 What Lorraine, what?
+3 Uh, yeah. What?
+    3.1 I can't believe it.
+    3.2 I'm never gonna get a chance to play in front of anybody.
+    3.3 I haven't So tell me, future boy, who's president of the United States in 1985?
+
+## Okay Doc, this is it.
+
+I could not visualize the headings so I illustrate them with hashes, like markdown. This text will be a paragraph.
+
+### Well maybe you are and you just don't know it yet.
+...
+```
+
 ## Options
 
 The following options can be set in your `/site/config/config.php` file:
