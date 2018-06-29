@@ -35,7 +35,7 @@ class TOC {
     
             $markdown .= '1. [' . $item . '](#' . $this->getSlug($item) . ')' . "\n";
         }
-        return markdown($markdown);
+        return '<div class="' . c::get('kirby.toc.class', 'toc') . '">' . markdown($markdown) . '</div>';
     }
 
     // Insert table of content list to a replaceable string

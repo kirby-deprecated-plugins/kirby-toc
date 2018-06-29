@@ -2,23 +2,36 @@
 
 ![Version 0.1](https://img.shields.io/badge/version-0.1-blue.svg) ![MIT license](https://img.shields.io/badge/license-MIT-green.svg) [![Donate](https://img.shields.io/badge/give-donation-yellow.svg)](https://www.paypal.me/DevoneraAB)
 
-Automatically generate a Table Of Contents nested list of your content.
+Automatically generate a table of contents nested list of your content.
 
-[Installation instructions](docs/install.md)
+[**Installation instructions**](docs/install.md)
 
-By default your Table Of Contents should now work out of the box.
+**By default the table of contents should now be visible at the top of all your pages.**
+
+## Things to keep in mind
+
+- Big heading jumps will fail. For example adding a h2 and then add an h4 will not work well.
 
 ## Options
 
 The following options can be set in your `/site/config/config.php` file:
 
 ```php
+c::get('kirby.toc.class', 'toc');
 c::set('kirby.toc.filters', ['headings', 'auto']);
 c::set('kirby.toc.field.method.name', 'toc');
 c::set('kirby.toc.replacement', '{{ toc }}');
 c::set('kirby.toc.slug.method', function($heading) {
     return str::slug($heading);
 };
+```
+
+## kirby.toc.class
+
+By default the table of contents nested list will be wrapped by `<div class="toc"></div>`. You can't remove it, but you can set another class name if you want.
+
+```php
+c::get('kirby.toc.class', 'table-of-contents');
 ```
 
 ### kirby.toc.filters
@@ -42,6 +55,8 @@ This filter adds id attributes to all h1-h6 tags. The id is extracted from the h
 ```text
 <h2 id="hello-h2">Hello h2</h2>
 ```
+
+**Be aware:** If you already have an id on your heading tag, it will not be replaced with a new one.
 
 #### auto
 
@@ -93,6 +108,36 @@ By default, Kirby `str::slug()` method is used to convert headings into ids. It 
 c::set('kirby.toc.slug.method', function($heading) {
     return mySuperSlugMethod($heading);
 };
+```
+
+## Add the table of contents yourself
+
+In case you need to add the table of contents nested list in your templates or snippets you can use the methods directly.
+
+**Something like below will present the nested table of contents list:**
+
+```php
+$TOC = new TOC();
+echo $TOC->list($html);
+echo $TOC->list($page->text()->kt());
+```
+
+## CSS
+
+To make the nested table of contents list look better you need to add some counters. Here is how to do that in CSS:
+
+```html
+<style>
+ol {
+    counter-reset: section;
+    list-style-type: none;
+}
+
+li::before {
+    counter-increment: section;
+    content: counters(section, ".") " ";
+}
+</style>
 ```
 
 ## Changelog
