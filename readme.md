@@ -21,12 +21,7 @@ It could look something like this:
     3.2 I'm never gonna get a chance to play in front of anybody.
     3.3 I haven't So tell me, future boy, who's president of the United States in 1985?
 
-## Okay Doc, this is it.
-
-I could not visualize the headings so I illustrate them with hashes, like markdown. This text will be a paragraph.
-
-### Well maybe you are and you just don't know it yet.
-...
+...the content will follow here...
 ```
 
 ## Options
