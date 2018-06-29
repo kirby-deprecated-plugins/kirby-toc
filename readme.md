@@ -8,10 +8,6 @@ Automatically generate a table of contents nested list of your content.
 
 **By default the table of contents should now be visible at the top of all your pages.**
 
-## Things to keep in mind
-
-- Big heading jumps will fail. For example adding a h2 and then add an h4 will not work well.
-
 ## Options
 
 The following options can be set in your `/site/config/config.php` file:
@@ -36,7 +32,7 @@ c::get('kirby.toc.class', 'table-of-contents');
 
 ### kirby.toc.filters
 
-By default two filters are used on the content to add a table of contents.
+By default two filters are used on the content to add the nested table of contents list.
 
 ```php
 c::set('kirby.toc.filters', ['headings', 'auto']);
@@ -44,7 +40,7 @@ c::set('kirby.toc.filters', ['headings', 'auto']);
 
 #### headings
 
-This filter adds id attributes to all h1-h6 tags. The id is extracted from the heading text and slugifies with the `str::slug()` method by default.
+This filter will add id attributes to all h1-h6 tags. The id is extracted from the heading text and converted to slugs with the `str::slug()` method by default.
 
 ```text
 ## Hello h2
@@ -118,7 +114,6 @@ In case you need to add the table of contents nested list in your templates or s
 
 ```php
 $TOC = new TOC();
-echo $TOC->list($html);
 echo $TOC->list($page->text()->kt());
 ```
 
