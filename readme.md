@@ -5,8 +5,11 @@ Automatically generate a table of contents nested list of your content.
 - **Version:** 0.2 beta
 - **Requirement:** Kirby 3
 - [Installation](https://devonera.se/docs/install/?user=jenstornell&plugin=kirby-toc)
+- [Changelog](docs/changelog.md)
 - [Disclaimer](https://devonera.se/docs/disclaimer/?user=jenstornell&plugin=kirby-toc)
 - [Donate](https://devonera.se/docs/donate/?user=jenstornell&plugin=kirby-toc)
+
+## Screenshot
 
 ![](docs/screenshot.png)
 
