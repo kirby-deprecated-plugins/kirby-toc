@@ -29,6 +29,18 @@ return [
 - When auto is `true`, the table of contents will be put on top of all pages.
 - When auto is `false`, you need to add `{{ toc }}` in your content, or use a field method.
 
+### slug.method
+
+The built in slug method `str::slug()` converts `ä` to `ae` which is not optimal in all languages. Here you can replace the slug engine with your own.
+
+```php
+return [
+    'jenstornell.toc.slug.method' => function($heading) {
+        return mySuperSlugMethod($heading);
+    }
+];
+```
+
 ## Field method
 
 If you don't want to display the table of contents of all your pages, you can use a field method. Make sure your auto option is set to `false`.
