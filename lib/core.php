@@ -17,7 +17,7 @@ class TOC {
 
     // Get slug from option or Kirby method
     private function getSlug($heading) {
-        $method = c::get('kirby.toc.slug.method');
+        $method = option('jenstornell.toc.slug.method');
         if(is_callable($method))
             return call($method, $heading);
         return str::slug($heading);
@@ -37,13 +37,13 @@ class TOC {
         }
         $html = markdown($markdown);
         if(!empty($html)) {
-            return '<div class="' . c::get('kirby.toc.class', 'toc') . '">' . markdown($markdown) . '</div>';
+            return '<div class="kirby-toc">' . markdown($markdown) . '</div>';
         }
     }
 
     // Insert table of content list to a replaceable string
     public function insertTocList($toc_list, $html) {
-        return str_replace(c::get('kirby.toc.replacement', '{{ toc }}'), $toc_list, $html);
+        return str_replace('{{ toc }}', $toc_list, $html);
     }
 
     // Get headings from html with regex
