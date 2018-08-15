@@ -1,0 +1,12 @@
+{
+  "name": "kirby-toc",
+  "description": "Automatically generate a table of contents nested list of your content.",
+  "author": "Jens Törnell <email@domain.com>",
+  "version": "0.1.0",
+  "type": "kirby-plugin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jenstornell/kirby-toc"
+  }
+}
